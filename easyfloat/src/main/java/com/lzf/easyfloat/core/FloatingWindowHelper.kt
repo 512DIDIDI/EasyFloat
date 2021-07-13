@@ -111,8 +111,16 @@ internal class FloatingWindowHelper(val context: Context, var config: FloatConfi
         frameLayout = ParentFrameLayout(context, config)
         frameLayout?.tag = config.floatTag
         // 将浮窗布局文件添加到父容器frameLayout中，并返回该浮窗文件
-        val floatingView =
+        val floatingView = if (config.layoutId != null) {
             LayoutInflater.from(context).inflate(config.layoutId!!, frameLayout, true)
+        } else {
+            if (config.customParams == null) {
+                frameLayout?.addView(config.customView)
+            } else {
+                frameLayout?.addView(config.customView, config.customParams)
+            }
+            config.customView!!
+        }
         // 为了避免创建的时候闪一下，我们先隐藏视图，不能直接设置GONE，否则定位会出现问题
         floatingView.visibility = View.INVISIBLE
         // 将frameLayout添加到系统windowManager中

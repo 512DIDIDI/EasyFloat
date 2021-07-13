@@ -6,7 +6,13 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
-import android.widget.*
+import android.widget.CheckBox
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import android.widget.SeekBar
+import android.widget.TextView
+import android.widget.Toast
 import com.lzf.easyfloat.EasyFloat
 import com.lzf.easyfloat.enums.ShowPattern
 import com.lzf.easyfloat.enums.SidePattern
@@ -20,10 +26,26 @@ import com.lzf.easyfloat.interfaces.OnTouchRangeListener
 import com.lzf.easyfloat.permission.PermissionUtils
 import com.lzf.easyfloat.utils.DragUtils
 import com.lzf.easyfloat.widget.BaseSwitchView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.float_seekbar.*
+import kotlinx.android.synthetic.main.activity_main.dismiss1
+import kotlinx.android.synthetic.main.activity_main.dismiss2
+import kotlinx.android.synthetic.main.activity_main.dismiss3
+import kotlinx.android.synthetic.main.activity_main.dismiss4
+import kotlinx.android.synthetic.main.activity_main.hide1
+import kotlinx.android.synthetic.main.activity_main.hide2
+import kotlinx.android.synthetic.main.activity_main.hide3
+import kotlinx.android.synthetic.main.activity_main.hide4
+import kotlinx.android.synthetic.main.activity_main.open1
+import kotlinx.android.synthetic.main.activity_main.open2
+import kotlinx.android.synthetic.main.activity_main.open3
+import kotlinx.android.synthetic.main.activity_main.open4
+import kotlinx.android.synthetic.main.activity_main.openBorderTest
+import kotlinx.android.synthetic.main.activity_main.openSecond
+import kotlinx.android.synthetic.main.activity_main.openSwipeTest
+import kotlinx.android.synthetic.main.activity_main.show1
+import kotlinx.android.synthetic.main.activity_main.show2
+import kotlinx.android.synthetic.main.activity_main.show3
+import kotlinx.android.synthetic.main.activity_main.show4
 import kotlin.math.max
-
 
 class MainActivity : BaseActivity(), View.OnClickListener {
 

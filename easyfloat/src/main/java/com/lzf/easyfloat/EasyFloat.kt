@@ -3,6 +3,7 @@ package com.lzf.easyfloat
 import android.app.Activity
 import android.content.Context
 import android.view.View
+import android.view.ViewGroup.LayoutParams
 import com.lzf.easyfloat.core.FloatingWindowManager
 import com.lzf.easyfloat.data.FloatConfig
 import com.lzf.easyfloat.enums.ShowPattern
@@ -194,6 +195,20 @@ class EasyFloat {
         }
 
         /**
+         * 设置自定义view
+         */
+        @JvmOverloads
+        fun setCustomView(
+            view: View,
+            params: LayoutParams? = null,
+            invokeView: OnInvokeView? = null
+        ) = apply {
+            config.customView = view
+            config.customParams = params
+            config.invokeView = invokeView
+        }
+
+        /**
          * 设置浮窗的对齐方式，以及偏移量
          * @param gravity 对齐方式
          * @param offsetX 目标坐标的水平偏移量
@@ -325,7 +340,7 @@ class EasyFloat {
          */
         fun show() = when {
             // 未设置浮窗布局文件，不予创建
-            config.layoutId == null -> callbackCreateFailed(WARN_NO_LAYOUT)
+            config.layoutId == null && config.customView == null -> callbackCreateFailed(WARN_NO_LAYOUT)
             // 仅当页显示，则直接创建activity浮窗
             config.showPattern == ShowPattern.CURRENT_ACTIVITY -> createFloat()
             // 系统浮窗需要先进行权限审核，有权限则创建app浮窗

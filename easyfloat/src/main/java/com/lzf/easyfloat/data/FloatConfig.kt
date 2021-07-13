@@ -2,10 +2,15 @@ package com.lzf.easyfloat.data
 
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup.LayoutParams
 import com.lzf.easyfloat.anim.DefaultAnimator
 import com.lzf.easyfloat.enums.ShowPattern
 import com.lzf.easyfloat.enums.SidePattern
-import com.lzf.easyfloat.interfaces.*
+import com.lzf.easyfloat.interfaces.FloatCallbacks
+import com.lzf.easyfloat.interfaces.OnDisplayHeight
+import com.lzf.easyfloat.interfaces.OnFloatAnimator
+import com.lzf.easyfloat.interfaces.OnFloatCallbacks
+import com.lzf.easyfloat.interfaces.OnInvokeView
 import com.lzf.easyfloat.utils.DefaultDisplayHeight
 
 /**
@@ -18,6 +23,10 @@ data class FloatConfig(
     // 浮窗的xml布局文件
     var layoutId: Int? = null,
     var layoutView: View? = null,
+
+    //自定义view
+    var customView: View? = null,
+    var customParams: LayoutParams? = null,
 
     // 当前浮窗的tag
     var floatTag: String? = null,
